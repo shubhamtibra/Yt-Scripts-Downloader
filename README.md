@@ -48,4 +48,38 @@ python vtt_to_text.py ./healNpd
 
 # Find your converted text files in the output folder
 ls output_healNpd
-``` 
+```
+
+## folder_diff.py
+
+This script compares two folders (including all their subdirectories) and copies files that are unique to either folder to an output directory.
+
+### Usage
+
+```bash
+python folder_diff.py <folder1> <folder2> <output_folder>
+```
+
+### Arguments
+
+- `folder1`: First input folder to compare
+- `folder2`: Second input folder to compare 
+- `output_folder`: Output folder where unique files will be copied
+
+### Features
+
+- Recursively scans all subdirectories in both input folders
+- Preserves directory structure when copying files to the output folder
+- Identifies and copies files that exist in one folder but not the other
+- Skips hidden files (those starting with a dot)
+
+### Example
+
+```bash
+python folder_diff.py HeidiPriebe healNpd unique_files
+```
+
+This will:
+1. Find all files in the HeidiPriebe folder that don't exist in the healNpd folder
+2. Find all files in the healNpd folder that don't exist in the HeidiPriebe folder
+3. Copy all unique files to the unique_files folder, preserving their directory structure 
